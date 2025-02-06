@@ -14,8 +14,8 @@ chmod +x "$(dirname "$0")/update.sh"
 source ../hdr-env/bin/activate
 pip install -r requirements.txt
 
-# Check for active connections on port 8501
-ACTIVE_CONNECTIONS=$(ss -tn | grep ':8501' | grep ESTAB | wc -l)
+# Check for active connections on port 80
+ACTIVE_CONNECTIONS=$(ss -tn | grep ':80' | grep ESTAB | wc -l)
 
 if [ "$ACTIVE_CONNECTIONS" -eq 0 ]; then
     echo "No active users - restarting service" >> update.log
